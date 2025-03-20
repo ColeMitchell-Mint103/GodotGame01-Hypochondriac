@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bggffl05suute"]
+
+[ext_resource type="Script" path="res://wick.gd" id="1_5hlay"]
+[ext_resource type="Texture2D" uid="uid://dvb8icgs2rdsy" path="res://art assets/@pixelated_robin mudkip_gun.png" id="2_x3bki"]
+[ext_resource type="AudioStream" uid="uid://cdfrnnn4mi1tj" path="res://Sound Assets/Receiver2_Glock_Fire.wav" id="3_mvtjt"]
+[ext_resource type="AudioStream" uid="uid://cl3wqe8utsq8v" path="res://Sound Assets/Receiver2_Glock_SlideRack.wav" id="4_pbr17"]
+[ext_resource type="AudioStream" uid="uid://2xov55vqrk2h" path="res://Sound Assets/Receiver2_Glock_DryFire.wav" id="5_fwlcy"]
+[ext_resource type="AudioStream" uid="uid://8wdammmvruds" path="res://Sound Assets/Receiver2_Glock_MagEject.wav" id="6_rylpa"]
+[ext_resource type="AudioStream" uid="uid://cyc4qhfvk3t46" path="res://Sound Assets/Receiver2_Glock_MagInsert.wav" id="7_gm4mn"]
+[ext_resource type="AudioStream" uid="uid://cqnmf7bf4lv0e" path="res://Sound Assets/Receiver2_Glock_SlideClose.wav" id="8_k2mq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3tqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x3bki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpyd7"]
+height = 130.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5hlay")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.249847, -0.147583)
+scale = Vector2(0.262918, 0.253473)
+sprite_frames = SubResource("SpriteFrames_e3tqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_rpyd7")
+
+[node name="Firing_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mvtjt")
+
+[node name="RackSlide_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pbr17")
+
+[node name="Dryfire_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fwlcy")
+
+[node name="Barrel" type="Node2D" parent="."]
+position = Vector2(98, -55)
+
+[node name="Eject_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rylpa")
+volume_db = 20.348
+pitch_scale = 0.77
+
+[node name="Insert_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gm4mn")
+
+[node name="SlideClose_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_k2mq2")

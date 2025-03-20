@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bav5ad81jypx8"]
+
+[ext_resource type="Script" path="res://gravestone_target.gd" id="1_fwwm8"]
+[ext_resource type="Texture2D" uid="uid://csk38s8oyl117" path="res://art assets/Gravestone_anim/gravestone0000.png" id="2_nbmcq"]
+[ext_resource type="Texture2D" uid="uid://bth0n30wmtam3" path="res://art assets/Gravestone_anim/gravestone0001.png" id="3_o2oua"]
+[ext_resource type="Texture2D" uid="uid://csngiah06hvtv" path="res://art assets/Gravestone_anim/gravestone0002.png" id="4_q0qdb"]
+[ext_resource type="Texture2D" uid="uid://cv5qox2ojhq5" path="res://art assets/Gravestone_anim/gravestone0003.png" id="5_4knwu"]
+[ext_resource type="Texture2D" uid="uid://41fqijffwmjs" path="res://art assets/Gravestone_anim/gravestone0004.png" id="6_nvs2g"]
+[ext_resource type="Texture2D" uid="uid://c06ppawewgmf4" path="res://art assets/Gravestone_anim/gravestone0005.png" id="7_u10dl"]
+[ext_resource type="Texture2D" uid="uid://b8dekk2prmbw7" path="res://art assets/Gravestone_anim/gravestone0006.png" id="8_o403t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smqhi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nbmcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o2oua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0qdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4knwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nvs2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u10dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o403t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qn0nt"]
+radius = 363.0
+height = 844.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_fwwm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["ReceiveDamage"]]
+sprite_frames = SubResource("SpriteFrames_smqhi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, -83)
+shape = SubResource("CapsuleShape2D_qn0nt")

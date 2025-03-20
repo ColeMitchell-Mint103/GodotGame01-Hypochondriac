@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmnbk3s2h66j"]
+
+[ext_resource type="PackedScene" uid="uid://bggffl05suute" path="res://Wick.tscn" id="1_v48o6"]
+[ext_resource type="PackedScene" uid="uid://vl5og7h64ss4" path="res://HUD.tscn" id="2_06ugn"]
+[ext_resource type="PackedScene" uid="uid://blsqs1x1kyvxk" path="res://target.tscn" id="4_w16pu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_v48o6")]
+position = Vector2(924, 625)
+
+[node name="Target" parent="." instance=ExtResource("4_w16pu")]
+position = Vector2(1230, 553)
+
+[node name="Target2" parent="." instance=ExtResource("4_w16pu")]
+position = Vector2(1555, 904)
+
+[node name="Target3" parent="." instance=ExtResource("4_w16pu")]
+position = Vector2(1436, 233)
+
+[node name="Player_HUD" parent="." instance=ExtResource("2_06ugn")]
+
+[connection signal="ammo_update" from="Player" to="Player_HUD" method="_on_player_ammo_update"]
+[connection signal="fired" from="Player" to="Player_HUD" method="_on_player_fired"]
+[connection signal="magazine_in" from="Player" to="Player_HUD" method="_on_player_magazine_in"]
+[connection signal="magazine_left" from="Player" to="Player_HUD" method="_on_player_magazine_left"]
+[connection signal="magazine_out" from="Player" to="Player_HUD" method="_on_player_magazine_out"]
+[connection signal="magazine_right" from="Player" to="Player_HUD" method="_on_player_magazine_right"]

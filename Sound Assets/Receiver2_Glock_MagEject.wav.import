@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8wdammmvruds"
+path="res://.godot/imported/Receiver2_Glock_MagEject.wav-59ac8242254a3802de208f97d7c2fab4.sample"
+
+[deps]
+
+source_file="res://Sound Assets/Receiver2_Glock_MagEject.wav"
+dest_files=["res://.godot/imported/Receiver2_Glock_MagEject.wav-59ac8242254a3802de208f97d7c2fab4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

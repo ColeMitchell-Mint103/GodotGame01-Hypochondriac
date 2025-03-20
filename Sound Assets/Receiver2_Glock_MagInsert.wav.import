@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyc4qhfvk3t46"
+path="res://.godot/imported/Receiver2_Glock_MagInsert.wav-5551180e0eed8514d30d2c4f337f979e.sample"
+
+[deps]
+
+source_file="res://Sound Assets/Receiver2_Glock_MagInsert.wav"
+dest_files=["res://.godot/imported/Receiver2_Glock_MagInsert.wav-5551180e0eed8514d30d2c4f337f979e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

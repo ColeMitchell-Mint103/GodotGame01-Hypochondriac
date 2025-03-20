@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2xov55vqrk2h"
+path="res://.godot/imported/Receiver2_Glock_DryFire.wav-f383d6e7b12d8ac053a9bc1786fe7045.sample"
+
+[deps]
+
+source_file="res://Sound Assets/Receiver2_Glock_DryFire.wav"
+dest_files=["res://.godot/imported/Receiver2_Glock_DryFire.wav-f383d6e7b12d8ac053a9bc1786fe7045.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

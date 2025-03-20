@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://u8qfy4v6ym11"]
+
+[ext_resource type="Texture2D" uid="uid://bvvbry2nnl2tf" path="res://art assets/Heavy_Bullet.png" id="1_pai3u"]
+
+[node name="Sprite2D" type="Sprite2D" groups=["bullet_sprite"]]
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_pai3u")

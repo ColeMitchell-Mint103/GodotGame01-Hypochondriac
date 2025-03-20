@@ -1,0 +1,153 @@
+[gd_scene load_steps=9 format=3 uid="uid://vl5og7h64ss4"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_4qeac"]
+[ext_resource type="Texture2D" uid="uid://df3ia4h05ssv" path="res://art assets/Firearm Animation/frame0000.png" id="2_0f7jl"]
+[ext_resource type="Texture2D" uid="uid://dtff48xsjwg4c" path="res://art assets/Firearm Animation/frame0001.png" id="3_muc5g"]
+[ext_resource type="Texture2D" uid="uid://d2w5oq2wwx22b" path="res://art assets/Firearm Animation/frame0002.png" id="4_wg7lf"]
+[ext_resource type="Texture2D" uid="uid://divhtlq1ksluo" path="res://art assets/Firearm Animation/frame0003.png" id="5_wdt67"]
+[ext_resource type="Texture2D" uid="uid://b8jo5ldr0j1rq" path="res://art assets/Firearm Animation/frame0004.png" id="6_lpijy"]
+[ext_resource type="Texture2D" uid="uid://ctfxit6dex6uj" path="res://art assets/Firearm Animation/frame0005.png" id="7_k7csi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc6lc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0f7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_muc5g")
+}],
+"loop": false,
+"name": &"Fire_drytriggerpull",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0f7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_muc5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wg7lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wdt67")
+}],
+"loop": false,
+"name": &"Fire_empty",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0f7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_muc5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wg7lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wdt67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lpijy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k7csi")
+}],
+"loop": false,
+"name": &"Fire_full",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0f7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wdt67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k7csi")
+}],
+"loop": false,
+"name": &"Fire_rack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wdt67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lpijy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k7csi")
+}],
+"loop": false,
+"name": &"Fire_toBattery",
+"speed": 10.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 2
+follow_viewport_enabled = true
+script = ExtResource("1_4qeac")
+
+[node name="Firearm_Display" type="AnimatedSprite2D" parent="."]
+position = Vector2(1393, 235)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_nc6lc")
+animation = &"Fire_empty"
+
+[node name="Insertion Point" type="Node2D" parent="Firearm_Display"]
+position = Vector2(-10, -7.143)
+scale = Vector2(1.3, 1.3)
+
+[node name="Chambered_Point" type="Node2D" parent="Firearm_Display"]
+position = Vector2(164.286, -181.429)
+
+[node name="Magazine_Display_New" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -675.0
+offset_top = -152.0
+offset_right = -79.0
+offset_bottom = 123.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Magazine_Display_New"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.376471, 0.67451, 1, 0.584314)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Magazine_Display_New"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Slot 0" type="Control" parent="Magazine_Display_New/HBoxContainer"]
+layout_mode = 2
+
+[node name="Slot 1" type="Control" parent="Magazine_Display_New/HBoxContainer"]
+layout_mode = 2
+
+[node name="Slot 2" type="Control" parent="Magazine_Display_New/HBoxContainer"]
+layout_mode = 2

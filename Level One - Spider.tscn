@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://6jqufjr8y5p4"]
+
+[ext_resource type="PackedScene" uid="uid://bggffl05suute" path="res://Wick.tscn" id="1_4it3a"]
+[ext_resource type="Texture2D" uid="uid://babffsqjlxglv" path="res://art assets/@WB_S_BonnieTarget.png" id="1_lrwrf"]
+[ext_resource type="PackedScene" uid="uid://vl5og7h64ss4" path="res://HUD.tscn" id="2_ti60b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwubx"]
+size = Vector2(2, 12.0959)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yelu6"]
+size = Vector2(2, 46.52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbgon"]
+size = Vector2(2, 11.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkq8c"]
+size = Vector2(2, 11.1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 2332.0
+offset_bottom = 483.0
+color = Color(0.172058, 0.291732, 0.476966, 1)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(97, 804)
+scale = Vector2(193.04, 50)
+collision_layer = 3
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(5.50369, -6.17)
+scale = Vector2(0.0298561, 0.00637224)
+texture = ExtResource("1_lrwrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(5.56361, -6.14)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_xwubx")
+
+[node name="Invis_Wall2" type="StaticBody2D" parent="."]
+position = Vector2(984, 257)
+scale = Vector2(50, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invis_Wall2"]
+position = Vector2(3.6, -6.1)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_yelu6")
+
+[node name="Invis_Wall3" type="StaticBody2D" parent="."]
+position = Vector2(2062, 93)
+rotation = 1.5708
+scale = Vector2(50, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invis_Wall3"]
+position = Vector2(3.6, -6.1)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_jbgon")
+
+[node name="Invis_Wall4" type="StaticBody2D" parent="."]
+position = Vector2(993, 801)
+scale = Vector2(50, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invis_Wall4"]
+position = Vector2(-20.36, -10.79)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_kkq8c")
+
+[node name="Player" parent="." node_paths=PackedStringArray("HUD_Link") instance=ExtResource("1_4it3a")]
+position = Vector2(137, 411)
+scale = Vector2(0.5, 0.5)
+HUD_Link = NodePath("../Camera2D/Player_HUD")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(137, 411)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+limit_left = -740
+limit_top = -250
+limit_right = 1920
+limit_bottom = 835
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Player_HUD" parent="Camera2D" node_paths=PackedStringArray("Player_Link") instance=ExtResource("2_ti60b")]
+follow_viewport_enabled = false
+Player_Link = NodePath("../../Player")
+
+[connection signal="ammo_update" from="Player" to="Camera2D/Player_HUD" method="_on_player_ammo_update"]
+[connection signal="fired" from="Player" to="Camera2D/Player_HUD" method="_on_player_fired"]
+[connection signal="magazine_in" from="Player" to="Camera2D/Player_HUD" method="_on_player_magazine_in"]
+[connection signal="magazine_left" from="Player" to="Camera2D/Player_HUD" method="_on_player_magazine_left"]
+[connection signal="magazine_out" from="Player" to="Camera2D/Player_HUD" method="_on_player_magazine_out"]
+[connection signal="magazine_right" from="Player" to="Camera2D/Player_HUD" method="_on_player_magazine_right"]
